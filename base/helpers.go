@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-
-	"github.com/umbrella-sh/um-common/logging/ulog"
+	
+	"github.com/floppyman/um-common/logging/ulog"
 )
 
 var Options TimeTaggerOptions
@@ -26,25 +26,25 @@ func Init(options TimeTaggerOptions) {
 func CreateRequest(method HttpMethod, urlPath string, body []byte) *http.Request {
 	fullUrl := fmt.Sprintf("%s%s", Options.ApiUrl, urlPath)
 	ulog.Console.Debug().Msgf("TimeTagger Url: %s", fullUrl)
-
+	
 	var req *http.Request
 	var err error
-
+	
 	if method != HttpGet && body != nil && len(body) > 0 {
 		req, err = http.NewRequest(string(method), fullUrl, bytes.NewBuffer(body))
 	} else {
 		req, err = http.NewRequest(string(method), fullUrl, nil)
 	}
-
+	
 	if err != nil {
 		return nil
 	}
-
+	
 	req.Header.Add("authtoken", Options.ApiToken)
 	if method != HttpGet {
 		req.Header.Add("Content-Type", "application/json")
 	}
-
+	
 	return req
 }
 
@@ -57,12 +57,12 @@ func DoRequest(req *http.Request) (bool, []byte, error) {
 	defer func(Body io.ReadCloser) {
 		_ = Body.Close()
 	}(resp.Body)
-
+	
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return false, nil, err
 	}
-
+	
 	return true, body, nil
 }
 
@@ -71,6 +71,6 @@ func UnpackBody(body []byte, res any) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-
+	
 	return true, nil
 }

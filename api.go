@@ -2,11 +2,11 @@ package timetagger
 
 import (
 	"github.com/spf13/viper"
-
-	"github.com/umbrella-sh/um-api-timetagger/base"
-	"github.com/umbrella-sh/um-api-timetagger/endpoints/records"
-	"github.com/umbrella-sh/um-api-timetagger/endpoints/settings"
-	"github.com/umbrella-sh/um-api-timetagger/endpoints/updates"
+	
+	"github.com/floppyman/um-api-timetagger/base"
+	"github.com/floppyman/um-api-timetagger/endpoints/records"
+	"github.com/floppyman/um-api-timetagger/endpoints/settings"
+	"github.com/floppyman/um-api-timetagger/endpoints/updates"
 )
 
 //goland:noinspection GoUnusedExportedFunction

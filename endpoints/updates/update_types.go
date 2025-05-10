@@ -1,8 +1,8 @@
 package updates
 
 import (
-	"github.com/umbrella-sh/um-api-timetagger/endpoints/records"
-	"github.com/umbrella-sh/um-api-timetagger/endpoints/settings"
+	"github.com/floppyman/um-api-timetagger/endpoints/records"
+	"github.com/floppyman/um-api-timetagger/endpoints/settings"
 )
 
 type UpdateEndPoint struct {
