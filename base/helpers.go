@@ -7,7 +7,7 @@ import (
 	"io"
 	"net/http"
 	
-	"github.com/floppyman/um-common/logging/ulog"
+	"github.com/floppyman/um-common/logging/logr"
 )
 
 var Options TimeTaggerOptions
@@ -25,7 +25,7 @@ func Init(options TimeTaggerOptions) {
 
 func CreateRequest(method HttpMethod, urlPath string, body []byte) *http.Request {
 	fullUrl := fmt.Sprintf("%s%s", Options.ApiUrl, urlPath)
-	ulog.Console.Debug().Msgf("TimeTagger Url: %s", fullUrl)
+	logr.Console.Debug().Msgf("TimeTagger Url: %s", fullUrl)
 	
 	var req *http.Request
 	var err error

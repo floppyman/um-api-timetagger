@@ -3,7 +3,7 @@ module github.com/floppyman/um-api-timetagger
 go 1.25
 
 require (
-	github.com/floppyman/um-common v1.2.8 // direct
+	github.com/floppyman/um-common v1.2.10 // direct
 	github.com/spf13/viper v1.21.0
 )
 
